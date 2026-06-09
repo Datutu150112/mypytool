@@ -68,7 +68,7 @@ quick_sort 功能:快速排序
 
 sort 功能:排序
 
-### static.py
+### stack.py
 
 class static 功能：栈
 
