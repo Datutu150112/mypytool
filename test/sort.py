@@ -1,0 +1,13 @@
+from mypytool import *
+a = [5,1,2,3,56,7]
+print(bubble_sort(a)) #输出[1,2,3,5,7,56]
+print(bucket_sort(a)) #输出[1,2,3,5,7,56]
+print(selection_sort(a)) #输出[1,2,3,5,7,56]
+print(insertion_sort(a)) #输出[1,2,3,5,7,56]
+print(shell_sort(a)) #输出[1,2,3,5,7,56]
+print(bubble_sort(a)) #输出[1,2,3,5,7,56]
+print(merge_sort(a)) #输出[1,2,3,5,7,56]
+print(quick_sort(a)) #输出[1,2,3,5,7,56]
+print(ascending_order(a,bubble_sort)) #输出[1,2,3,5,7,56]
+print(descending_order(a,bubble_sort)) #输出[56, 7, 5, 3, 2, 1]
+print(sort(a,bucket_sort,descending_order)) #输出[56, 7, 5, 3, 2, 1]
