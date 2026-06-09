@@ -10,7 +10,7 @@ def perfect_square_sub_gs(x:int,y:int):
 def perfect_square_sub_z(x:int,y:int):
     return (x**2+y**2-2*x*y)
 def glm(x):
-    t = base_conversion(x)
+    t = base_conversion(x,2)
     t2 = []
     t2.append(t[0])
     for i in range(len(t)-1):
@@ -80,8 +80,6 @@ def fibonacci_recursion(n: int):
     if(n<=2):
         return 1
     return fibonacci_recursion(n-1)+fibonacci_recursion(n-2)
-def add_int(x: int,y: int):
-    return x+y
 # def factorial_recursion_tqdm_dy(n,bar,m):
 #     bar.update(m)
 #     if(n==0):

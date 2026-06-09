@@ -31,4 +31,4 @@ class Queue():
     def front(self):
         return self.queue[self.Front]
     def back(self):
-        return self.queue[self.End]
+        return self.queue[self.End-1]
