@@ -1,104 +1,99 @@
 import math
-from . import main
-class Circle():
-    def __init__(self,radius):
-        self.Radius = radius
-        self.Area = math.pi * (main.pow(self.Radius,2))
-        self.Perimeter = math.pi * (2 * self.Radius)
-    def radius(self):
-        return self.Radius
+
+from typing import Protocol
+
+
+class _BaseShape(Protocol):
+    @property
+    def area(self) -> float: ...
+
+    @property
+    def perimeter(self) -> float: ...
+
+
+class Circle(_BaseShape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    @property
     def area(self):
-        return self.Area
+        return math.pi * (math.pow(self.radius, 2))
+
+    @property
     def perimeter(self):
-        return self.Perimeter   
-    
-class Square():
-    def __init__(self,side_length):
-        self.Side_length = side_length
-        self.Perimeter = 4 * side_length
-        self.Area = side_length * side_length
-    def side_length(self):
-        return self.Side_length
+        return math.pi * (2 * self.radius)
+
+
+class Square(_BaseShape):
+    def __init__(self, length):
+        self.length = length
+
+    @property
     def area(self):
-        return self.Area
+        return self.length**2
+
+    @property
     def perimeter(self):
-        return self.Perimeter
-    
-class Rectangle():
-    def __init__(self,Length, Width):
-        self.Length = Length
-        self.Width = Width
-        self.Perimeter = (self.Length + self.Width) * 2
-        self.Area = self.Length * self.Width
-    def width(self):
-        return self.Width
-    def length(self):
-        return self.Length
+        return 4 * self.length
+
+
+class Rectangle(_BaseShape):
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    @property
     def area(self):
-        return self.Area
+        return self.length * self.width
+
+    @property
     def perimeter(self):
-        return self.Perimeter
-    
-class Triangle():
-    def __init__(self,a,h,b,c):
+        return (self.length + self.width) * 2
+
+
+class Triangle(_BaseShape):
+    def __init__(self, a, h, b, c):
         self.a = a
         self.b = b
         self.c = c
-        self.h = h
-        self.Area = a * h / 2
-        self.Perimeter = a + b + c
-    def alen(self):
-        return self.a
-    def blen(self):
-        return self.b
-    def clen(self):
-        return self.c
-    def high(self):
-        return self.h
-    def area(self):
-        return self.Area
-    def perimeter(self):
-        return self.Perimeter
+        self.height = h
 
-class Parallelogram():
-    def __init__(self,a,b,h):
+    @property
+    def area(self):
+        return self.a * self.height / 2
+
+    @property
+    def perimeter(self):
+        return self.a + self.b + self.c
+
+
+class Parallelogram(_BaseShape):
+    def __init__(self, a, b, h):
         self.a = a
         self.b = b
         self.h = h
-        self.Area = a * h
-        self.Perimeter = a*2 + b*2
-    def alen(self):
-        return self.a
-    def blen(self):
-        return self.b
-    def hlen(self):
-        return self.h
-    def area(self):
-        return self.Area
-    def perimeter(self):
-        return self.Perimeter
 
-class Trapezoid():
-    def __init__(self,a,b,h,c,d):
+    @property
+    def area(self):
+        return self.a * self.h
+
+    @property
+    def perimeter(self):
+        return self.a * 2 + self.b * 2
+
+
+class Trapezoid(_BaseShape):
+    def __init__(self, a, b, h, c, d):
         self.a = a
         self.b = b
         self.h = h
         self.c = c
         self.d = d
-        self.Area = (a + b) * h / 2
-        self.Perimeter = a + b + c + d
-    def alen(self):
-        return self.a
-    def blen(self):
-        return self.b
-    def hlen(self):
-        return self.h
-    def clen(self):
-        return self.c
-    def dblen(self):
-        return self.d
-    def area(self):
-        return self.Area
-    def perimeter(self):
-        return self.Perimeter
 
+    @property
+    def area(self):
+        return (self.a + self.b) * self.h / 2
+
+    @property
+    def perimeter(self):
+        return self.a + self.b + self.c + self.d
