@@ -89,9 +89,5 @@ def fibonacci_recursion(n: int) -> int:
     return fibonacci_recursion(n - 1) + fibonacci_recursion(n - 2)
 
 
-print(PHI, fibonacci(-4))
-print(fibonacci_recursion(12))
-
-
 def pow_transform(x, y, n=2) -> str:
     return f"{x**n}**{y // n}"

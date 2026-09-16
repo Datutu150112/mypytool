@@ -2,7 +2,7 @@ import math
 from typing import Protocol
 
 
-class _BaseShape(Protocol):
+class Shape(Protocol):
     @property
     def area(self) -> float: ...
 
@@ -10,8 +10,8 @@ class _BaseShape(Protocol):
     def perimeter(self) -> float: ...
 
 
-class Circle(_BaseShape):
-    def __init__(self, radius):
+class Circle(Shape):
+    def __init__(self, radius: float):
         self.radius = radius
 
     @property
@@ -23,8 +23,8 @@ class Circle(_BaseShape):
         return math.pi * (2 * self.radius)
 
 
-class Parallelogram(_BaseShape):
-    def __init__(self, length, width, height):
+class Parallelogram(Shape):
+    def __init__(self, length: float, width: float, height: float):
         self.length = length
         self.width = width
         self.height = height
@@ -35,11 +35,11 @@ class Parallelogram(_BaseShape):
 
     @property
     def perimeter(self):
-        return self.length * 2 + self.width * 2
+        return (self.length + self.width) * 2
 
 
-class Rectangle(Parallelogram, _BaseShape):
-    def __init__(self, length, width):
+class Rectangle(Parallelogram):
+    def __init__(self, length: float, width: float):
         self.length = length
         self.width = width
 
@@ -57,8 +57,8 @@ class Rectangle(Parallelogram, _BaseShape):
         return self.width
 
 
-class Square(Rectangle, _BaseShape):
-    def __init__(self, length):
+class Square(Rectangle):
+    def __init__(self, length: float):
         self.length = length
 
     @property
@@ -75,8 +75,8 @@ class Square(Rectangle, _BaseShape):
         return self.length
 
 
-class Triangle(_BaseShape):
-    def __init__(self, a, height, b, c):
+class Triangle(Shape):
+    def __init__(self, a: float, height: float, b: float, c: float):
         self.a = a
         self.b = b
         self.c = c
@@ -91,8 +91,8 @@ class Triangle(_BaseShape):
         return self.a + self.b + self.c
 
 
-class Trapezoid(_BaseShape):
-    def __init__(self, a, b, height, c, d):
+class Trapezoid(Shape):
+    def __init__(self, a: float, b: float, height: float, c: float, d: float):
         self.a = a
         self.b = b
         self.height = height
