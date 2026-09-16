@@ -1,5 +1,4 @@
 import math
-
 from typing import Protocol
 
 
@@ -24,20 +23,22 @@ class Circle(_BaseShape):
         return math.pi * (2 * self.radius)
 
 
-class Square(_BaseShape):
-    def __init__(self, length):
+class Parallelogram(_BaseShape):
+    def __init__(self, length, width, height):
         self.length = length
+        self.width = width
+        self.height = height
 
     @property
     def area(self):
-        return self.length**2
+        return self.length * self.height
 
     @property
     def perimeter(self):
-        return 4 * self.length
+        return self.length * 2 + self.width * 2
 
 
-class Rectangle(_BaseShape):
+class Rectangle(Parallelogram, _BaseShape):
     def __init__(self, length, width):
         self.length = length
         self.width = width
@@ -50,13 +51,36 @@ class Rectangle(_BaseShape):
     def perimeter(self):
         return (self.length + self.width) * 2
 
+    # 长方形是一种特殊的平行四边形，对吧。。
+    @property
+    def height(self):
+        return self.width
+
+
+class Square(Rectangle, _BaseShape):
+    def __init__(self, length):
+        self.length = length
+
+    @property
+    def area(self):
+        return self.length**2
+
+    @property
+    def perimeter(self):
+        return 4 * self.length
+
+    # 正方形是一种特殊的长方形，对吧。。
+    @property
+    def width(self):
+        return self.length
+
 
 class Triangle(_BaseShape):
-    def __init__(self, a, h, b, c):
+    def __init__(self, a, height, b, c):
         self.a = a
         self.b = b
         self.c = c
-        self.height = h
+        self.height = height
 
     @property
     def area(self):
@@ -67,32 +91,17 @@ class Triangle(_BaseShape):
         return self.a + self.b + self.c
 
 
-class Parallelogram(_BaseShape):
-    def __init__(self, a, b, h):
-        self.a = a
-        self.b = b
-        self.h = h
-
-    @property
-    def area(self):
-        return self.a * self.h
-
-    @property
-    def perimeter(self):
-        return self.a * 2 + self.b * 2
-
-
 class Trapezoid(_BaseShape):
-    def __init__(self, a, b, h, c, d):
+    def __init__(self, a, b, height, c, d):
         self.a = a
         self.b = b
-        self.h = h
+        self.height = height
         self.c = c
         self.d = d
 
     @property
     def area(self):
-        return (self.a + self.b) * self.h / 2
+        return (self.a + self.b) * self.height / 2
 
     @property
     def perimeter(self):

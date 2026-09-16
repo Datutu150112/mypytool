@@ -48,6 +48,7 @@ def gray2bytes(data: bytes) -> bytes:
     将格雷码转换回原始二进制数据（逐字节逆向）。
     格雷码转二进制的规则：从高位到低位，逐位异或。
     """
+    # 我其实不明白
     result = bytearray()
     for g in data:
         binary = g
@@ -80,10 +81,16 @@ def fibonacci_recursion(n: int) -> int:
     if n < 0:
         # 报错是直接从 math.factorial 上复制的
         raise ValueError("fibonacci_recursion() not defined for negative values")
+    elif n == 0:
+        return 0
     elif n <= 2:
         return 1
 
     return fibonacci_recursion(n - 1) + fibonacci_recursion(n - 2)
+
+
+print(PHI, fibonacci(-4))
+print(fibonacci_recursion(12))
 
 
 def pow_transform(x, y, n=2) -> str:

@@ -4,35 +4,37 @@
 
 ## 安装方法
 
+```
 pip install mypytool
+```
 
 ## 功能介绍
 
 ### main.py
 
-- perfect_square_plus_gs 完全平方和公式
-- perfect_square_plus_z 完全平方和值
-- perfect_square_sub_gs 完全平方差公式
-- perfect_square_sub_z 完全平方差值
-- bytes2gray 以格雷码形式编码
-- gray2bytes 解码格雷码
-- base_conversion 将x转换成y进制
-- fibonacci_recursion 求斐波那契的第n项值
-- fibonacci [公式](https://en.wikipedia.org/wiki/Fibonacci_sequence#Closed-form_expression)求斐波那契数列。由于浮点数精度问题，计算的结果会极为不正确
+- `perfect_square_plus_gs` 完全平方和公式
+- `perfect_square_plus_z` 完全平方和值
+- `perfect_square_sub_gs` 完全平方差公式
+- `perfect_square_sub_z` 完全平方差值
+- `bytes2gray` 以格雷码形式编码
+- `gray2bytes` 解码格雷码
+- `base_conversion` 将x转换成y进制
+- `fibonacci_recursion` 求斐波那契的第n项值
+- `fibonacci` [公式](https://en.wikipedia.org/wiki/Fibonacci_sequence#Closed-form_expression)求斐波那契数列。由于浮点数精度问题，计算的结果会极为不正确
 
 ### linked_list.py
 
-- class GeneralLinkedList 单向链表
-- class CycleLinkedList 循环链表
+- class `GeneralLinkedList` 单向链表
+- class `CycleLinkedList` 循环链表
 
 ### graghic.py
 
-- class Circle 圆
-- class Square 正方形
-- class Rectangle 长方形
-- class Triangle 三角形
-- class Parallelogram 平行四边形
-- class Trapezoid 梯形
+- class `Circle` 圆
+- class `Square` 正方形
+- class `Rectangle` 长方形
+- class `Triangle` 三角形
+- class `Parallelogram` 平行四边形
+- class `Trapezoid` 梯形
 
 ## 更新日志
 
